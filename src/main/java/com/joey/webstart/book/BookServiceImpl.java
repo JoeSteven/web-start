@@ -1,5 +1,6 @@
 package com.joey.webstart.book;
 
+import com.joey.webstart.interceptor.ApiException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,6 +32,6 @@ public class BookServiceImpl implements IBookService {
         for (Book book :books) {
             if (book.name.equals(name)) return book;
         }
-        return null;
+        throw new IllegalStateException("can't find book by name:"+name);
     }
 }

@@ -1,9 +1,12 @@
 package com.joey.webstart.book;
 
 import com.joey.webstart.common.CommonHelper;
+import com.joey.webstart.interceptor.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 
 @RestController
@@ -13,18 +16,18 @@ public class BookController {
     private IBookService service;
 
     @RequestMapping(method = RequestMethod.GET, value = "/all")
-    public ModelAndView bookList() {
-        return CommonHelper.generate(service.bookList());
+    public List<Book> bookList() {
+        return service.bookList();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView donateBook(@RequestBody Book book) {
+    public Book donateBook(@RequestBody Book book) {
         service.donateBook(book);
-        return CommonHelper.generate(null);
+        return null;
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView borrowBook(@RequestParam(value = "name") String name) {
-        return CommonHelper.generate(service.borrowBook(name));
+    public Book borrowBook(@RequestParam(value = "name") String name) {
+        return service.borrowBook(name);
     }
 }

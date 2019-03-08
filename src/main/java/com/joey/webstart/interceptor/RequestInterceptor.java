@@ -27,15 +27,4 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
         }
 
     }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        if (modelAndView != null) {
-            Object o = modelAndView.getModel().get("data");
-            CommonResponse data = new CommonResponse(o);
-            response.getWriter().append(mapper.writeValueAsString(data)).flush();
-        } else {
-            super.postHandle(request, response, handler, modelAndView);
-        }
-    }
 }

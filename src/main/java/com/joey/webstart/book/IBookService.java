@@ -1,5 +1,7 @@
 package com.joey.webstart.book;
 
+import com.joey.webstart.interceptor.ApiException;
+
 import java.util.List;
 
 public interface IBookService {
