@@ -1,4 +1,4 @@
-package com.joey.webstart.book;
+package com.joey.webstart.module.book;
 
 public class Book {
     public String name;

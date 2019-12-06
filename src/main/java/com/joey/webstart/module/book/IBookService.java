@@ -1,6 +1,4 @@
-package com.joey.webstart.book;
-
-import com.joey.webstart.interceptor.ApiException;
+package com.joey.webstart.module.book;
 
 import java.util.List;
 
