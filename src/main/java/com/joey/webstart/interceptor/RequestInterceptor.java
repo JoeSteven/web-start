@@ -14,17 +14,17 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
     private ObjectMapper mapper = new ObjectMapper();
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("token");
-        if ("qiaoxiaoxi".equals(token)) {
+//        String token = request.getHeader("token");
+//        if ("qiaoxiaoxi".equals(token)) {
             return super.preHandle(request, response, handler);
-        } else  {
-            response.setStatus(200);
-            CommonResponse data = new CommonResponse(null);
-            data.code = 20003;
-            data.message = "unAuthorized!";
-            response.getWriter().append(mapper.writeValueAsString(data)).flush();
-            return false;
-        }
+//        } else  {
+//            response.setStatus(200);
+//            CommonResponse data = new CommonResponse(null);
+//            data.code = 20003;
+//            data.message = "unAuthorized!";
+//            response.getWriter().append(mapper.writeValueAsString(data)).flush();
+//            return false;
+//        }
 
     }
 }
